@@ -15,6 +15,12 @@ let controller = function() {
     }
   };
 
+  if (localStorage.toDoList == null) {
+    localStorage.setItem("toDoList", $(".comments").html());
+    $(".comments").html(localStorage.getItem("toDoList"));
+    return null;
+  }
+
   $(".comment-input button").on("click", function(event) {
     addCommentFromInputBox();
   });
